@@ -32,8 +32,7 @@ kubectl wait --for condition=established --timeout=60s crd/applications.app.k8s.
 kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/env/dev?ref=$PIPELINE_VERSION"
 
 #Get the public URL for the Kubeflow Pipelines UI and use it to access the Kubeflow Pipelines UI:
-echo "========== Kubeflow Pipelines UI =========="
-sleep 90
-kubectl describe configmap inverse-proxy-config -n kubeflow
-sleep 10
 echo "========== Installation Done =========="
+
+echo "========== Kubeflow Pipelines UI =========="
+echo "to get public url for the Kubeflow Pipelines UI: kubectl describe configmap inverse-proxy-config -n kubeflow | grep googleusercontent.com "
