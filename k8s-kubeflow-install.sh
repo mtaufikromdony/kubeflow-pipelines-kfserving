@@ -33,6 +33,8 @@ kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/env/dev?ref=
 
 #Get the public URL for the Kubeflow Pipelines UI and use it to access the Kubeflow Pipelines UI:
 echo "========== Kubeflow Pipelines UI =========="
-kubectl describe configmap inverse-proxy-config -n kubeflow | grep googleusercontent.com
-
+sleep 15
+KUBEFLOW-UI-URL=$(kubectl describe configmap inverse-proxy-config -n kubeflow | grep googleusercontent.com)
+sleep 10
+echo $KUBEFLOW-UI-URL
 echo "========== Installation Done =========="
