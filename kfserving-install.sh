@@ -87,18 +87,18 @@ fi
 
 echo "========== Test KFServing Installation =========="
 echo "Check KFServing controller installation"
-kubectl get po -n kfserving-system
-
+kubectl get po -n kfserving-system --watch
+sleep 10
 echo "========== Create KFServing test inference service =========="
 kubectl create namespace kfserving-test
 kubectl apply -f docs/samples/sklearn/sklearn.yaml -n kfserving-test
-
+sleep 30
 echo "========== Check KFServing InferenceService status =========="
-kubectl get inferenceservices sklearn-iris -n kfserving-test
-
+kubectl get inferenceservices sklearn-iris -n kfserving-test --watch
+sleep 60
 export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
-
+sleep 5
 echo "========== Curl the InferenceService from ingress gateway =========="
 SERVICE_HOSTNAME=$(kubectl get inferenceservice sklearn-iris -n kfserving-test -o jsonpath='{.status.url}' | cut -d "/" -f 3)
 curl -v -H "Host: ${SERVICE_HOSTNAME}" http://${INGRESS_HOST}:${INGRESS_PORT}/v1/models/sklearn-iris:predict -d @./docs/samples/sklearn/iris-input.json
