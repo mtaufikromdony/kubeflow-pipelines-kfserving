@@ -87,7 +87,8 @@ fi
 
 echo "========== Test KFServing Installation =========="
 echo "Check KFServing controller installation"
-kubectl get po -n kfserving-system --watch
+sleep 20
+kubectl get po -n kfserving-system 
 sleep 10
 echo "========== Create KFServing test inference service =========="
 kubectl create namespace kfserving-test
