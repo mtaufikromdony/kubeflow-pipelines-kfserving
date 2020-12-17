@@ -24,6 +24,12 @@ In the repository describe with 3 files :
 ## Create new GKE cluster with kubeflow pipelines
 ```./kfserving-install.sh ```
  
+## Use an existing GKE cluster with installed Kubeflow pipelines
+
+In order to use an existing cluster the `kubectl` CLI should be properly authenticated. This can be done with the `gcloud` CLI tool as follows:
+
+`gcloud container clusters get-credentials <your cluster's name>`
+
 ## Install KFserving and sklearn test
 ``` ./k8s-kubeflow-install.sh ```
  
