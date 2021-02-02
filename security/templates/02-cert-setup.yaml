@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: kfserving-cert
+  namespace: istio-system
+spec:
+  domains:
+    - ${KFSERVING_ENDPOINT_PREFIX}.endpoints.${GCP_PROJECT_ID}.cloud.goog

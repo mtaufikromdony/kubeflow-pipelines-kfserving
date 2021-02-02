@@ -1,0 +1,10 @@
+swagger: "2.0"
+host: "${KFSERVING_ENDPOINT_PREFIX}.endpoints.${GCP_PROJECT_ID}.cloud.goog"
+paths: {}
+info:
+  description: "Endpoint for providing predictions"
+  title: "Predictions endpoint"
+  version: "1.0.0"
+x-google-endpoints:
+- name: "${KFSERVING_ENDPOINT_PREFIX}.endpoints.${GCP_PROJECT_ID}.cloud.goog"
+  target: "${PUBLIC_IP_ADDRESS}"
