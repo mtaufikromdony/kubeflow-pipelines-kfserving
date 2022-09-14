@@ -3,8 +3,8 @@
 set -e
 
 export GCP_PROJECT_ID="kubeflow-sandbox-project"
-export OAUTH_CLIENT_ID="63669976687-j0b7m3s0vk7qm1r1p6jbjsqlris2ebue.apps.googleusercontent.com"
-export OAUTH_CLIENT_SECRET="8lwlfooDOsic4HlreK2WPrMl"
+export OAUTH_CLIENT_ID="xxxxx.apps.googleusercontent.com"
+export OAUTH_CLIENT_SECRET="xxxxxx"
 
 export PUBLIC_IP_NAME="kfserving-public-ip"
 export KFSERVING_ENDPOINT_PREFIX="kfserving"
